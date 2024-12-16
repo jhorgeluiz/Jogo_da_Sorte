@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Número Aleatório</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            align-content: center;
+            background-color: azure;
+        }
+
+        header {
+            background-color: gray;
+            margin: auto;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 400px;
+            height: 50px;
+        }
+
+        nav {
+            background-color: #CA3827;
+            margin: auto;
+            text-align: center;
+            width: 400px;
+        }
+        .resultado {
+            margin: auto;
+            border: 2px solid;
+            width: 100px;
+            height: 50px;
+        }
+
+        main {
+            /* display: block; */
+            background-color: #CA3827;
+            background-image: url('img1.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 400px;
+            height: 300px;
+            align-content: center;
+            margin: auto;
+        }
+
+        .cont_amarelo {
+            background-color: #FFC625;
+            display: flex;
+            justify-content: center;
+            height: 20vh;
+            width: 300px;
+            margin: auto;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px;
+        }
+
+        input, select {
+            border-radius: 10px;
+            border-style: none;
+            text-align: center;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+        }
+        .btn_aposta {
+            background-color: #FFC625;
+            border-radius: 10px;
+            border-style: none;
+            text-align: center;
+            font-size: 20px;
+            width: 100px;
+            height: 60px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+            background-color: #CA3827;
+            /* box-shadow: 1px 1px 8px; */
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            width: 400px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Gerador </h1>
+    </header>
+    <nav>
+        <p>Resultado</p>
+        <div  class="resultado"  id="res">
+
+        </div>
+    </nav>
+    <main>
+        <div class="cont_amarelo">
+            <section>
+                <button onclick="gerarNumero1()">Gerar 1</button>
+                <p id="numero1">Resultado</p>
+            </section>
+            <section>
+                <button onclick="gerarNumero2()">Gerar 2</button>
+                <p id="numero2">Resultado</p>
+            </section>
+            <section>
+                <button onclick="gerarNumero3()">Gerar 3</button>
+                <p id="numero3">Resultado</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <input type="number" name="" id="campo" placeholder="R$">
+        <select name="" id="select">
+            <option value="2">2X</option>
+            <option value="4">4X</option>
+            <option value="6">6X</option>
+        </select>
+        <button class="btn_aposta" onclick="verificar()">Apostar</button>
+    </footer>
+    
+
+    
+
+
+    <script>
+
+        function verificar() {
+            const res = document.getElementById("res")
+            const select = document.getElementById("select")
+            const campo = document.getElementById("campo")
+            const cumulativo = document.getElementById("cumulativo")
+            const valorSelect = select.value
+            const valorCampo = Number(campo.value)
+            const resultado = valorSelect * valorCampo
+
+            if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
+                res.innerHTML = resultado
+                campo.value = ""
+            }
+        }
+
+        function gerarNumero1() {
+            numeroAleatorio1 = Math.floor(Math.random() * 2) + 1
+            let numero1 = document.getElementById("numero1")
+            numero1.innerHTML = numeroAleatorio1
+        }
+
+        function gerarNumero2() {
+            numeroAleatorio2 = Math.floor(Math.random() * 2) + 1
+            let numero2 = document.getElementById("numero2")
+            numero2.innerHTML = numeroAleatorio2
+        }
+
+        function gerarNumero3() {
+            numeroAleatorio3 = Math.floor(Math.random() * 2) + 1
+            let numero3 = document.getElementById("numero3")
+            numero3.innerHTML = numeroAleatorio3
+        }
+
+    </script>
+</body>
+</html>
