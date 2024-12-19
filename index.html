@@ -30,10 +30,11 @@
             width: 400px;
         }
         .resultado {
+            box-shadow: 2px 1px 20px 8px yellow;
             margin: auto;
             border: 2px solid;
-            width: 100px;
-            height: 50px;
+            width: 300px;
+            height: 100px;
         }
 
         main {
@@ -52,7 +53,7 @@
 
         .cont_amarelo {
             background-color: #FFC625;
-            display: flex;
+            display: none;
             justify-content: center;
             height: 20vh;
             width: 300px;
@@ -95,6 +96,17 @@
             height: 100px;
         }
 
+        #modal {
+            background-color: white;
+            /* display: none; */
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            align-content: center;
+
+        }
+
     </style>
 </head>
 <body>
@@ -104,12 +116,17 @@
     </header>
     <nav>
         <p>Resultado</p>
-        <div  class="resultado"  id="res">
-
-        </div>
+        
     </nav>
     <main>
-        <div class="cont_amarelo">
+
+        <div id="modal">
+            <div  class="resultado"  id="res"></div>
+            
+        </div>
+
+
+        <div id="cont_amarelo" class="cont_amarelo">
             <section>
                 <button onclick="gerarNumero1()">Gerar 1</button>
                 <p id="numero1">Resultado</p>
@@ -131,7 +148,8 @@
             <option value="4">4X</option>
             <option value="6">6X</option>
         </select>
-        <button class="btn_aposta" onclick="verificar()">Apostar</button>
+        <button onclick="verificar()">verificar</button>
+        <button id="btn_aposta" class="btn_aposta" >Iniciar</button>
     </footer>
     
 
@@ -139,6 +157,12 @@
 
 
     <script>
+
+        let cont_amarelo = document.getElementById('cont_amarelo')
+        let btn_aposta = document.getElementById('btn_aposta')
+        btn_aposta.addEventListener('click', function(){
+            cont_amarelo.style.display = 'flex'
+        })
 
         function verificar() {
             const res = document.getElementById("res")
@@ -148,10 +172,12 @@
             const valorSelect = select.value
             const valorCampo = Number(campo.value)
             const resultado = valorSelect * valorCampo
+            const modal = document.getElementById("modal")
 
             if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
-                res.innerHTML = resultado
+                res.innerHTML = `Parabens ${resultado}`
                 campo.value = ""
+                modal.style.display = 'flex'
             }
         }
 
