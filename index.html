@@ -15,9 +15,8 @@
         }
 
         header {
-            background-color: gray;
+            background-color: #CA3827;
             margin: auto;
-            margin-bottom: 10px;
             text-align: center;
             width: 400px;
             height: 50px;
@@ -36,6 +35,18 @@
             width: 300px;
             height: 100px;
         }
+        .p_result {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 10px;
+            font-size: 50px;
+            font-weight: bolder;
+            margin: 20px;
+            width: 60px;
+            height: 80px;
+        }
 
         main {
             /* display: block; */
@@ -53,7 +64,8 @@
 
         .cont_amarelo {
             background-color: #FFC625;
-            display: none;
+            border-radius: 10px;
+            display: flex;
             justify-content: center;
             height: 20vh;
             width: 300px;
@@ -61,9 +73,18 @@
         }
 
         section {
-            background-color: white;
-            margin: 20px;
+            /* background-color: #1ab83c; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* margin: 20px; */
         }
+        .btn_gerar {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
 
         input, select {
             border-radius: 10px;
@@ -112,12 +133,9 @@
 <body>
     
     <header>
-        <h1>Gerador </h1>
+        <h1>Jogo da Sorte</h1>
     </header>
-    <nav>
-        <p>Resultado</p>
-        
-    </nav>
+
     <main>
 
         <div id="modal">
@@ -128,16 +146,16 @@
 
         <div id="cont_amarelo" class="cont_amarelo">
             <section>
-                <button onclick="gerarNumero1()">Gerar 1</button>
-                <p id="numero1">Resultado</p>
+                <p class="p_result" id="numero1"></p>
+                <button class="btn_gerar" onclick="gerarNumero1()">Gerar 1</button>
             </section>
             <section>
-                <button onclick="gerarNumero2()">Gerar 2</button>
-                <p id="numero2">Resultado</p>
+                <p class="p_result" id="numero2"></p>
+                <button class="btn_gerar" onclick="gerarNumero2()">Gerar 2</button>
             </section>
             <section>
-                <button onclick="gerarNumero3()">Gerar 3</button>
-                <p id="numero3">Resultado</p>
+                <p class="p_result" id="numero3"></p>
+                <button class="btn_gerar" onclick="gerarNumero3()">Gerar 3</button>
             </section>
         </div>
     </main>
