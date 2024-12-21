@@ -4,125 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Sorte</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            align-content: center;
-            background-color: azure;
-        }
-
-        header {
-            background-color: #CA3827;
-            margin: auto;
-            text-align: center;
-            width: 400px;
-            height: 50px;
-        }
-
-        nav {
-            background-color: #CA3827;
-            margin: auto;
-            text-align: center;
-            width: 400px;
-        }
-        .resultado {
-            box-shadow: 2px 1px 20px 8px yellow;
-            margin: auto;
-            border: 2px solid;
-            width: 300px;
-            height: 100px;
-        }
-        .p_result {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-radius: 10px;
-            font-size: 50px;
-            font-weight: bolder;
-            margin: 20px;
-            width: 60px;
-            height: 80px;
-        }
-
-        main {
-            background-color: #CA3827;
-            background-image: url('img1.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 400px;
-            height: 300px;
-            align-content: center;
-            margin: auto;
-        }
-
-        .cont_amarelo {
-            background-color: #FFC625;
-            border-radius: 10px;
-            display: none;
-            justify-content: center;
-            height: 20vh;
-            width: 300px;
-            margin: auto;
-        }
-
-        section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .btn_gerar {
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        input, select {
-            border-radius: 10px;
-            border-style: none;
-            text-align: center;
-            font-size: 20px;
-            width: 100px;
-            height: 40px;
-        }
-        .btn_aposta {
-            background-color: #FFC625;
-            border-radius: 10px;
-            border-style: none;
-            text-align: center;
-            font-size: 20px;
-            width: 100px;
-            height: 60px;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: auto;
-            background-color: #CA3827;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            width: 400px;
-            height: 100px;
-        }
-
-        #modal {
-            background-color: white;
-            display: none;
-            position: absolute;
-            top: 28%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            align-content: center;
-
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -145,72 +27,100 @@
             </section>
             <section>
                 <p class="p_result" id="numero2"></p>
-                <button class="btn_gerar" onclick="gerarNumero2()">Gerar 2</button>
+                <button id="btn2" class="btn_gerar" onclick="gerarNumero2()" disabled="true">Gerar 2</button>
             </section>
             <section>
                 <p class="p_result" id="numero3"></p>
-                <button class="btn_gerar" onclick="gerarNumero3()">Gerar 3</button>
+                <button id="btn3" class="btn_gerar" onclick="gerarNumero3()" disabled="true">Gerar 3</button>
             </section>
         </div>
     </main>
     <footer>
-        <input type="number" name="" id="campo" placeholder="R$">
-        <select name="" id="select">
+        <input type="number" name="" id="campo" placeholder="R$" disabled="true">
+        <select name="" id="select" disabled="tru">
             <option value="2">2X</option>
             <option value="4">4X</option>
             <option value="6">6X</option>
         </select>
-        <button onclick="verificar()">verificar</button>
+        <button onclick="verificar()">Reiniciar</button>
         <button id="btn_aposta" class="btn_aposta" >Iniciar</button>
     </footer>
     
 
-    
-
-
     <script>
-
         let cont_amarelo = document.getElementById('cont_amarelo')
         let btn_aposta = document.getElementById('btn_aposta')
+
         btn_aposta.addEventListener('click', function(){
             cont_amarelo.style.display = 'flex'
+            document.getElementById('campo').disabled = false
+            document.getElementById('select').disabled = false
         })
 
-        function verificar() {
-            const res = document.getElementById("res")
-            const select = document.getElementById("select")
-            const campo = document.getElementById("campo")
-            const cumulativo = document.getElementById("cumulativo")
-            const valorSelect = select.value
-            const valorCampo = Number(campo.value)
-            const resultado = valorSelect * valorCampo
-            const modal = document.getElementById("modal")
+        
 
-            if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
-                res.innerHTML = `Parabens ${resultado}`
-                campo.value = ""
-                modal.style.display = 'flex'
-            }
-        }
 
         function gerarNumero1() {
             numeroAleatorio1 = Math.floor(Math.random() * 2) + 1
             let numero1 = document.getElementById("numero1")
+            document.getElementById('btn2').disabled = false
             numero1.innerHTML = numeroAleatorio1
+            
         }
 
         function gerarNumero2() {
             numeroAleatorio2 = Math.floor(Math.random() * 2) + 1
             let numero2 = document.getElementById("numero2")
+            document.getElementById('btn3').disabled = false
             numero2.innerHTML = numeroAleatorio2
+
+            
         }
 
         function gerarNumero3() {
             numeroAleatorio3 = Math.floor(Math.random() * 2) + 1
             let numero3 = document.getElementById("numero3")
             numero3.innerHTML = numeroAleatorio3
+
+            const res = document.getElementById("res")
+            const select = document.getElementById("select")
+            const campo = document.getElementById("campo")
+            const valorSelect = select.value
+            const valorCampo = Number(campo.value)
+            const resultado = valorSelect * valorCampo
+            const modal = document.getElementById("modal")
+
+
+            if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
+                res.innerHTML = `Parabens ${resultado}`
+                campo.value = ""
+                modal.style.display = 'flex'
+            } else {
+                res.innerHTML = `Tente outra vez`
+                modal.style.display = 'flex'
+            }
         }
+
+        function verificar() {
+            let cont_amarelo = document.getElementById('cont_amarelo')
+            const modal = document.getElementById("modal")
+            const res1 = document.getElementById('numero1')
+            const res2 = document.getElementById('numero2')
+            const res3 = document.getElementById('numero3')
+            const campo = document.getElementById("campo")
+            cont_amarelo.style.display = 'none'
+            res1.innerHTML = ''
+            res2.innerHTML = ''
+            res3.innerHTML = ''
+            campo.innerHTML = ''
+            modal.style.display = 'none'
+           
+        }
+        
 
     </script>
 </body>
 </html>
+
+
+
