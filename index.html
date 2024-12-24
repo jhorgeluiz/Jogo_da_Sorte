@@ -10,16 +10,19 @@
     
     <header>
         <h1>Jogo da Sorte</h1 >
+            
     </header>
 
     <main>
 
         <div id="modal">
             <div  class="resultado"  id="res"></div>
-            
+
+            <div id="loading">Carregando...</div>
+
         </div>
 
-
+    
         <div id="cont_amarelo" class="cont_amarelo">
             <section>
                 <p class="p_result" id="numero1"></p>
@@ -99,6 +102,16 @@
                 res.innerHTML = `Tente outra vez`
                 modal.style.display = 'flex'
             }
+
+
+            document.getElementById('loading').style.display = 'none'
+            document.getElementById('modal').style.display = 'none'
+
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none'
+                document.getElementById('modal').style.display = 'block'
+            }, 2500)
+
         }
 
         function verificar() {
@@ -116,7 +129,6 @@
             modal.style.display = 'none'
            
         }
-        
 
     </script>
 </body>
