@@ -91,25 +91,17 @@
             const valorCampo = Number(campo.value)
             const resultado = valorSelect * valorCampo
             const modal = document.getElementById("modal")
-
-
-            if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
-                res.innerHTML = `Parabens ${resultado}`
-                campo.value = ""
-                modal.style.display = 'flex'
-            } else {
-                res.innerHTML = `Tente outra vez`
-                modal.style.display = 'flex'
-            }
-
-
+            
             document.getElementById('loading').style.display = 'none'
             document.getElementById('modal').style.display = 'none'
 
             setTimeout(() => {
+                
                 document.getElementById('loading').style.display = 'none'
                 document.getElementById('modal').style.display = 'block'
+
             }, 2500)
+            
 
         }
 
