@@ -60,8 +60,6 @@
         })
 
         
-
-
         function gerarNumero1() {
             numeroAleatorio1 = Math.floor(Math.random() * 2) + 1
             let numero1 = document.getElementById("numero1")
@@ -74,9 +72,7 @@
             numeroAleatorio2 = Math.floor(Math.random() * 2) + 1
             let numero2 = document.getElementById("numero2")
             document.getElementById('btn3').disabled = false
-            numero2.innerHTML = numeroAleatorio2
-
-            
+            numero2.innerHTML = numeroAleatorio2 
         }
 
         function gerarNumero3() {
@@ -101,8 +97,6 @@
                 document.getElementById('modal').style.display = 'block'
 
             }, 2500)
-            
-
         }
 
         function verificar() {
@@ -118,7 +112,6 @@
             res3.innerHTML = ''
             campo.innerHTML = ''
             modal.style.display = 'none'
-           
         }
 
     </script>
