@@ -41,7 +41,7 @@
             <option value="4">4X</option>
             <option value="6">6X</option>
         </select>
-        <button onclick="reiniciar()">Reiniciar</button>
+        <button id="recarregaPagina">Reiniciar</button>
         <button id="btn_aposta" class="btn_aposta" >Iniciar</button>
     </footer>
     
@@ -125,6 +125,10 @@
             modal.style.display = 'none'
 
         }
+
+        document.getElementById('recarregaPagina').addEventListener('click', function() {
+            location.reload()
+        })
 
     </script>
 </body>
