@@ -16,9 +16,6 @@
 
         <div id="modal">
             <div  class="resultado"  id="res"></div>
-
-            <div id="loading">Carregando...</div>
-
         </div>
 
     
@@ -44,7 +41,7 @@
             <option value="4">4X</option>
             <option value="6">6X</option>
         </select>
-        <button onclick="verificar()">Reiniciar</button>
+        <button onclick="reiniciar()">Reiniciar</button>
         <button id="btn_aposta" class="btn_aposta" >Iniciar</button>
     </footer>
     
@@ -57,6 +54,7 @@
             cont_amarelo.style.display = 'flex'
             document.getElementById('campo').disabled = false
             document.getElementById('select').disabled = false
+
         })
 
         
@@ -87,19 +85,32 @@
             const valorCampo = Number(campo.value)
             const resultado = valorSelect * valorCampo
             const modal = document.getElementById("modal")
+            const load = document.getElementById("load")
             
-            document.getElementById('loading').style.display = 'none'
-            document.getElementById('modal').style.display = 'none'
 
-            setTimeout(() => {
+            if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
+                res.innerHTML = `carregando...`
+
+                setTimeout(() => {
+                    res.innerHTML = `Parabens! Você ganhou ${resultado}`
+                }, 2500)
+                campo.value = ""
+                modal.style.display = 'flex'
+
+            } else {
+                res.innerHTML = `carregando...`
                 
-                document.getElementById('loading').style.display = 'none'
-                document.getElementById('modal').style.display = 'block'
-
-            }, 2500)
+                setTimeout(() => {
+                    res.innerHTML = `Que pena! Não foi dessa vez!`
+                }, 2500)
+                campo.value = ""
+                modal.style.display = 'flex'
+            }
+                            
         }
 
-        function verificar() {
+            
+        function reiniciar() {
             let cont_amarelo = document.getElementById('cont_amarelo')
             const modal = document.getElementById("modal")
             const res1 = document.getElementById('numero1')
@@ -112,6 +123,7 @@
             res3.innerHTML = ''
             campo.innerHTML = ''
             modal.style.display = 'none'
+
         }
 
     </script>
