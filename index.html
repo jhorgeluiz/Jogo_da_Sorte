@@ -10,19 +10,18 @@
     
     <header>
         <h1>Jogo da Sorte</h1>
-    </header>
-
-    <main>
 
         <div id="modal">
             <div  class="resultado"  id="res"></div>
         </div>
+    </header>
 
-    
+    <main>
+
         <div id="cont_amarelo" class="cont_amarelo">
             <section>
                 <p class="p_result" id="numero1"></p>
-                <button class="btn_gerar" onclick="gerarNumero1()">Gerar 1</button>
+                <button id="btn1" class="btn_gerar" onclick="gerarNumero1()" disabled="true">Gerar 1</button>
             </section>
             <section>
                 <p class="p_result" id="numero2"></p>
@@ -36,13 +35,13 @@
     </main>
     <footer>
         <input type="number" name="" id="campo" placeholder="R$" disabled="true">
-        <select name="" id="select" disabled="tru">
+        <select name="" id="select" disabled="true">
             <option value="2">2X</option>
             <option value="4">4X</option>
             <option value="6">6X</option>
         </select>
-        <button id="recarregaPagina">Reiniciar</button>
-        <button id="btn_aposta" class="btn_aposta" >Iniciar</button>
+        <button class="btn_reset" id="recarregaPagina">Reset</button>
+        <button id="btn_aposta" class="btn_iniciar" >Iniciar</button>
     </footer>
     
 
@@ -86,25 +85,28 @@
             const resultado = valorSelect * valorCampo
             const modal = document.getElementById("modal")
             const load = document.getElementById("load")
-            
 
             if (numeroAleatorio1 === numeroAleatorio2 && numeroAleatorio1 === numeroAleatorio3) {
-                res.innerHTML = `carregando...`
+                res.innerHTML = `<p class="txt_resposta">carregando...</p>`
 
                 setTimeout(() => {
-                    res.innerHTML = `Parabens! Você ganhou ${resultado}`
-                }, 2500)
+                    res.innerHTML = `<p class="txt_resposta">Parabens! Você ganhou ${resultado}</p>`
+                }, 500)
                 campo.value = ""
                 modal.style.display = 'flex'
+                modal.style.background = 'green'
+                modal.style.borderRadius = '10px'
 
             } else {
-                res.innerHTML = `carregando...`
+                res.innerHTML = `<p class="txt_resposta">carregando...</p>`
                 
                 setTimeout(() => {
-                    res.innerHTML = `Que pena! Não foi dessa vez!`
-                }, 2500)
+                    res.innerHTML = `<p class="txt_resposta">Que pena! Não foi dessa vez!</p>`
+                }, 500)
                 campo.value = ""
                 modal.style.display = 'flex'
+                modal.style.background = 'red'
+                modal.style.borderRadius = '10px'
             }
                             
         }
@@ -125,6 +127,16 @@
             modal.style.display = 'none'
 
         }
+
+        const input = document.getElementById('campo')
+        const btn1 = document.getElementById('btn1')
+        input.addEventListener('input', function() {
+            
+            if (input.value.trim() !== ''){
+                btn1.disabled = false
+            }
+        })
+        
 
         document.getElementById('recarregaPagina').addEventListener('click', function() {
             location.reload()

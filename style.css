@@ -6,29 +6,30 @@
 }
 body {
     align-content: center;
-    background-color: azure;
+    margin-top: 10px;
+}
+
+h1 {
+    color: #FFC625;
+    font-size: 50px;
 }
 
 header {
     background-color: #CA3827;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     margin: auto;
     text-align: center;
     width: 400px;
     height: 50px;
 }
 
-nav {
-    background-color: #CA3827;
-    margin: auto;
-    text-align: center;
-    width: 400px;
-}
 .resultado {
-    box-shadow: 2px 1px 20px 8px yellow;
+    border-radius: 10px;
     margin: auto;
     border: 2px solid;
-    width: 300px;
-    height: 100px;
+    width: 280px;
+    height: 50px;
 }
 .p_result {
     display: flex;
@@ -84,14 +85,26 @@ input, select {
     width: 100px;
     height: 40px;
 }
-.btn_aposta {
+.btn_iniciar {
     background-color: #FFC625;
     border-radius: 10px;
     border-style: none;
     text-align: center;
+    font-weight: bolder;
     font-size: 20px;
-    width: 100px;
+    width: 80px;
     height: 60px;
+}
+
+.btn_reset {
+    background-color: #797ab4;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+    width: 60px;
+    height: 30px;
 }
 
 footer {
@@ -107,12 +120,19 @@ footer {
 }
 
 #modal {
-    background-color: white;
+    /* background-color: white; */
     display: none;
     position: absolute;
-    top: 28%;
+    top: 31%;
     left: 50%;
     transform: translate(-50%, -50%);
     align-content: center;
 
+}
+
+.txt_resposta {
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bolder;
 }
