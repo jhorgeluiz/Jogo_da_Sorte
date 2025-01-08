@@ -120,14 +120,12 @@ footer {
 }
 
 #modal {
-    /* background-color: white; */
     display: none;
     position: absolute;
     top: 31%;
     left: 50%;
     transform: translate(-50%, -50%);
     align-content: center;
-
 }
 
 .txt_resposta {
