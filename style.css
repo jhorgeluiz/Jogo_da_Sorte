@@ -5,6 +5,7 @@
     padding: 0;
 }
 body {
+    background-color: #CA3827;
     align-content: center;
     margin-top: 10px;
 }
@@ -50,7 +51,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 400px;
+    width: 380px;
     height: 300px;
     align-content: center;
     margin: auto;
@@ -112,7 +113,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     margin: auto;
-    background-color: #CA3827;
+    
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     width: 400px;
