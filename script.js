@@ -40,22 +40,22 @@ function gerarNumero3() {
         res.innerHTML = `<p class="txt_resposta">carregando...</p>`
 
         setTimeout(() => {
-            res.innerHTML = `<p class="txt_resposta">Parabens! Você ganhou ${resultado}</p>`
+            res.innerHTML = `<p class="txt_resposta">Parabens! <br> Você ganhou R$ ${resultado},00</p>`
         }, 500)
         campo.value = ""
         modal.style.display = 'flex'
-        modal.style.background = 'green'
+        modal.style.background = 'black'
         modal.style.borderRadius = '10px'
 
     } else {
         res.innerHTML = `<p class="txt_resposta">carregando...</p>`
         
         setTimeout(() => {
-            res.innerHTML = `<p class="txt_resposta">Que pena! Não foi dessa vez!</p>`
+            res.innerHTML = `<p class="txt_resposta">Que pena! <br> Não foi dessa vez!</p>`
         }, 500)
         campo.value = ""
         modal.style.display = 'flex'
-        modal.style.background = 'red'
+        modal.style.background = 'black'
         modal.style.borderRadius = '10px'
     }          
 }
